@@ -30,6 +30,12 @@
             .text-shadow {
                 text-shadow: 0 2px 4px rgba(0,0,0,0.1);
             }
+            .card-hover {
+                transition: all 0.3s ease;
+            }
+            .card-hover:hover {
+                transform: translateY(-8px);
+            }
         }
     </style>
 </head>
@@ -64,38 +70,62 @@
         </div>
     </section>
 
-    <!-- Sección Servicios -->
+    <!-- Sección Servicios CON IMÁGENES -->
     <section id="servicios" class="py-20 bg-white">
         <div class="container mx-auto px-4">
             <h3 class="text-[clamp(1.5rem,3vw,2.2rem)] font-bold text-center text-primary mb-16">Nuestros Servicios</h3>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-5xl mx-auto">
                 
-                <!-- Servicio 1 -->
-                <div class="bg-gray-50 p-8 rounded-xl shadow-md hover:shadow-xl transition-shadow border-b-4 border-secondary">
-                    <i class="fa fa-cogs text-4xl text-secondary mb-4"></i>
-                    <h4 class="text-xl font-semibold mb-2">Estructuras Metálicas</h4>
-                    <p class="text-gray-600">Diseño, fabricación e instalación de estructuras resistentes y seguras para cualquier uso.</p>
+                <!-- Servicio 1: Estructuras Metálicas -->
+                <div class="bg-gray-50 rounded-xl shadow-lg overflow-hidden card-hover border-b-4 border-secondary">
+                    <img src="https://images.unsplash.com/photo-1504917591070-2822f98b481b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
+                         alt="Estructuras Metálicas LUAXGROUP" class="w-full h-56 object-cover">
+                    <div class="p-6">
+                        <div class="flex items-center mb-3">
+                            <i class="fa fa-cogs text-3xl text-secondary mr-3"></i>
+                            <h4 class="text-xl font-semibold">Estructuras Metálicas</h4>
+                        </div>
+                        <p class="text-gray-600 leading-relaxed">Diseño, fabricación e instalación de estructuras resistentes, techos, coberturas y estructuras industriales cumpliendo todas las normas de seguridad y calidad.</p>
+                    </div>
                 </div>
 
-                <!-- Servicio 2 -->
-                <div class="bg-gray-50 p-8 rounded-xl shadow-md hover:shadow-xl transition-shadow border-b-4 border-secondary">
-                    <i class="fa fa-bolt text-4xl text-secondary mb-4"></i>
-                    <h4 class="text-xl font-semibold mb-2">Electricidad Domiciliaria e Industrial</h4>
-                    <p class="text-gray-600">Instalaciones, mantenimiento y reparaciones eléctricas cumpliendo todas las normas de seguridad.</p>
+                <!-- Servicio 2: Electricidad -->
+                <div class="bg-gray-50 rounded-xl shadow-lg overflow-hidden card-hover border-b-4 border-secondary">
+                    <img src="https://images.unsplash.com/photo-1621905251159-5d38d6584938?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
+                         alt="Electricidad Domiciliaria e Industrial LUAXGROUP" class="w-full h-56 object-cover">
+                    <div class="p-6">
+                        <div class="flex items-center mb-3">
+                            <i class="fa fa-bolt text-3xl text-secondary mr-3"></i>
+                            <h4 class="text-xl font-semibold">Electricidad Domiciliaria e Industrial</h4>
+                        </div>
+                        <p class="text-gray-600 leading-relaxed">Instalaciones eléctricas completas, mantenimiento, reparaciones y tableros eléctricos para casas, edificios e industrias. Trabajos seguros y garantizados.</p>
+                    </div>
                 </div>
 
-                <!-- Servicio 3 -->
-                <div class="bg-gray-50 p-8 rounded-xl shadow-md hover:shadow-xl transition-shadow border-b-4 border-secondary">
-                    <i class="fa fa-video-camera text-4xl text-secondary mb-4"></i>
-                    <h4 class="text-xl font-semibold mb-2">Seguridad Electrónica</h4>
-                    <p class="text-gray-600">Instalación de cámaras de vigilancia, videoporteros y sistemas de control de acceso.</p>
+                <!-- Servicio 3: Cámaras y Seguridad -->
+                <div class="bg-gray-50 rounded-xl shadow-lg overflow-hidden card-hover border-b-4 border-secondary">
+                    <img src="https://images.unsplash.com/photo-1558002038-755759376912?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
+                         alt="Instalación de Cámaras y Videoporteros LUAXGROUP" class="w-full h-56 object-cover">
+                    <div class="p-6">
+                        <div class="flex items-center mb-3">
+                            <i class="fa fa-video-camera text-3xl text-secondary mr-3"></i>
+                            <h4 class="text-xl font-semibold">Cámaras y Videoporteros</h4>
+                        </div>
+                        <p class="text-gray-600 leading-relaxed">Sistemas de vigilancia modernos, instalación de cámaras HD, videoporteros, control de acceso y monitoreo remoto para la seguridad de su hogar o negocio.</p>
+                    </div>
                 </div>
 
-                <!-- Servicio 4 -->
-                <div class="bg-gray-50 p-8 rounded-xl shadow-md hover:shadow-xl transition-shadow border-b-4 border-secondary">
-                    <i class="fa fa-wrench text-4xl text-secondary mb-4"></i>
-                    <h4 class="text-xl font-semibold mb-2">Instalación de TERT</h4>
-                    <p class="text-gray-600">Servicios especializados de instalación y montaje técnico según tus necesidades.</p>
+                <!-- Servicio 4: Instalación TERT -->
+                <div class="bg-gray-50 rounded-xl shadow-lg overflow-hidden card-hover border-b-4 border-secondary">
+                    <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
+                         alt="Instalación TERT LUAXGROUP" class="w-full h-56 object-cover">
+                    <div class="p-6">
+                        <div class="flex items-center mb-3">
+                            <i class="fa fa-wrench text-3xl text-secondary mr-3"></i>
+                            <h4 class="text-xl font-semibold">Instalación de TERT</h4>
+                        </div>
+                        <p class="text-gray-600 leading-relaxed">Servicios especializados de instalación, montaje y mantenimiento de sistemas técnicos y proyectos TERT, con personal capacitado y experiencia en el rubro.</p>
+                    </div>
                 </div>
 
             </div>
@@ -148,7 +178,7 @@
     <!-- Pie de página -->
     <footer class="bg-dark text-white py-8">
         <div class="container mx-auto px-4 text-center">
-            <img src="logo.png" alt="LUAXGROUP Logo" class="h-12 mr-3">
+            <img src="logo.png" alt="LUAXGROUP Logo" class="h-10 mx-auto mb-4">
             <p class="mb-2">© 2026 LUAXGROUP - Todos los derechos reservados</p>
             <p class="text-gray-400 text-sm">Soluciones integrales en estructuras, electricidad y seguridad</p>
         </div>
