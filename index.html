@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LUAXGROUP - Soluciones Integrales</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0A3D91',
+                        secondary: '#00B4D8',
+                        dark: '#1A1A1A',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .content-auto {
+                content-visibility: auto;
+            }
+            .text-shadow {
+                text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            }
+        }
+    </style>
+</head>
+<body class="font-sans text-dark bg-gray-50">
+
+    <!-- Encabezado / Navegación -->
+    <header class="bg-white shadow-md fixed w-full z-50">
+        <div class="container mx-auto px-4 py-3 flex flex-col md:flex-row justify-between items-center">
+            <div class="flex items-center mb-3 md:mb-0">
+                <img src="https://i.imgur.com/7ZbX7yL.png" alt="LUAXGROUP Logo" class="h-12 mr-3">
+                <h1 class="text-[clamp(1.2rem,2vw,1.5rem)] font-bold text-primary">LUAXGROUP</h1>
+            </div>
+            <nav>
+                <ul class="flex space-x-6 text-gray-700 font-medium">
+                    <li><a href="#inicio" class="hover:text-primary transition-colors">Inicio</a></li>
+                    <li><a href="#servicios" class="hover:text-primary transition-colors">Servicios</a></li>
+                    <li><a href="#nosotros" class="hover:text-primary transition-colors">Nosotros</a></li>
+                    <li><a href="#contacto" class="hover:text-primary transition-colors">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Sección Principal -->
+    <section id="inicio" class="pt-28 pb-20 bg-gradient-to-r from-primary/90 to-secondary/80 text-white">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-[clamp(2rem,5vw,3.5rem)] font-bold mb-4 text-shadow">Soluciones Integrales para tu Proyecto</h2>
+            <p class="text-[clamp(1rem,2vw,1.3rem)] mb-8 max-w-3xl mx-auto">Estructuras metálicas, electricidad, seguridad y más. Calidad y confianza en cada trabajo.</p>
+            <a href="#contacto" class="bg-white text-primary font-semibold px-8 py-3 rounded-full hover:bg-gray-100 transition-all transform hover:scale-105 shadow-lg">
+                Contáctanos
+            </a>
+        </div>
+    </section>
+
+    <!-- Sección Servicios -->
+    <section id="servicios" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <h3 class="text-[clamp(1.5rem,3vw,2.2rem)] font-bold text-center text-primary mb-16">Nuestros Servicios</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Servicio 1 -->
+                <div class="bg-gray-50 p-8 rounded-xl shadow-md hover:shadow-xl transition-shadow border-b-4 border-secondary">
+                    <i class="fa fa-cogs text-4xl text-secondary mb-4"></i>
+                    <h4 class="text-xl font-semibold mb-2">Estructuras Metálicas</h4>
+                    <p class="text-gray-600">Diseño, fabricación e instalación de estructuras resistentes y seguras para cualquier uso.</p>
+                </div>
+
+                <!-- Servicio 2 -->
+                <div class="bg-gray-50 p-8 rounded-xl shadow-md hover:shadow-xl transition-shadow border-b-4 border-secondary">
+                    <i class="fa fa-bolt text-4xl text-secondary mb-4"></i>
+                    <h4 class="text-xl font-semibold mb-2">Electricidad Domiciliaria e Industrial</h4>
+                    <p class="text-gray-600">Instalaciones, mantenimiento y reparaciones eléctricas cumpliendo todas las normas de seguridad.</p>
+                </div>
+
+                <!-- Servicio 3 -->
+                <div class="bg-gray-50 p-8 rounded-xl shadow-md hover:shadow-xl transition-shadow border-b-4 border-secondary">
+                    <i class="fa fa-video-camera text-4xl text-secondary mb-4"></i>
+                    <h4 class="text-xl font-semibold mb-2">Seguridad Electrónica</h4>
+                    <p class="text-gray-600">Instalación de cámaras de vigilancia, videoporteros y sistemas de control de acceso.</p>
+                </div>
+
+                <!-- Servicio 4 -->
+                <div class="bg-gray-50 p-8 rounded-xl shadow-md hover:shadow-xl transition-shadow border-b-4 border-secondary">
+                    <i class="fa fa-wrench text-4xl text-secondary mb-4"></i>
+                    <h4 class="text-xl font-semibold mb-2">Instalación de TERT</h4>
+                    <p class="text-gray-600">Servicios especializados de instalación y montaje técnico según tus necesidades.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Nosotros -->
+    <section id="nosotros" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="max-w-3xl mx-auto text-center">
+                <h3 class="text-[clamp(1.5rem,3vw,2.2rem)] font-bold text-primary mb-6">Sobre Nosotros</h3>
+                <p class="text-gray-700 text-lg leading-relaxed">
+                    En <strong>LUAXGROUP</strong> nos dedicamos a brindar soluciones integrales en estructuras metálicas, electricidad y sistemas de seguridad. 
+                    Ubicados en Av. Sicuani, contamos con un equipo de profesionales comprometidos con la calidad, la puntualidad y la seguridad en cada proyecto que realizamos.
+                    Nuestro objetivo es cumplir y superar las expectativas de nuestros clientes.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Contacto -->
+    <section id="contacto" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <h3 class="text-[clamp(1.5rem,3vw,2.2rem)] font-bold text-center text-primary mb-12">Contáctanos</h3>
+            <div class="max-w-2xl mx-auto bg-gray-50 p-8 rounded-2xl shadow-lg">
+                <div class="space-y-6 text-lg">
+                    <div class="flex items-center">
+                        <i class="fa fa-phone text-2xl text-secondary mr-4 w-8 text-center"></i>
+                        <p><strong>Celular:</strong> 916794900</p>
+                    </div>
+                    <div class="flex items-center">
+                        <i class="fa fa-map-marker text-2xl text-secondary mr-4 w-8 text-center"></i>
+                        <p><strong>Dirección:</strong> Av. Sicuani</p>
+                    </div>
+                    <div class="flex items-center">
+                        <i class="fa fa-clock-o text-2xl text-secondary mr-4 w-8 text-center"></i>
+                        <p><strong>Horario:</strong> Lunes a Sábado: 8:00 AM - 6:00 PM</p>
+                    </div>
+                </div>
+
+                <div class="mt-10 text-center">
+                    <a href="tel:+51916794900" class="inline-block bg-primary text-white px-8 py-3 rounded-full hover:bg-primary/90 transition-colors shadow-md">
+                        <i class="fa fa-phone mr-2"></i> Llamar Ahora
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pie de página -->
+    <footer class="bg-dark text-white py-8">
+        <div class="container mx-auto px-4 text-center">
+            <img src="https://i.imgur.com/7ZbX7yL.png" alt="LUAXGROUP Logo" class="h-10 mx-auto mb-4">
+            <p class="mb-2">© 2026 LUAXGROUP - Todos los derechos reservados</p>
+            <p class="text-gray-400 text-sm">Soluciones integrales en estructuras, electricidad y seguridad</p>
+        </div>
+    </footer>
+
+</body>
+</html>
