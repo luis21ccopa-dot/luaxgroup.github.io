@@ -14,6 +14,7 @@
                         primary: '#0A3D91',
                         secondary: '#00B4D8',
                         dark: '#1A1A1A',
+                        lightblue: '#E0F2FE',
                     },
                     fontFamily: {
                         sans: ['Inter', 'system-ui', 'sans-serif'],
@@ -31,100 +32,235 @@
                 text-shadow: 0 2px 4px rgba(0,0,0,0.1);
             }
             .card-hover {
-                transition: all 0.3s ease;
+                transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+                cursor: pointer;
             }
             .card-hover:hover {
-                transform: translateY(-8px);
+                transform: translateY(-12px) scale(1.02);
+                box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            }
+            .img-hover {
+                transition: transform 0.5s ease;
+            }
+            .img-container:hover .img-hover {
+                transform: scale(1.1);
+            }
+            .nav-scrolled {
+                background-color: rgba(255, 255, 255, 0.95) !important;
+                backdrop-filter: blur(10px);
+                box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            }
+            .fade-in {
+                opacity: 0;
+                transform: translateY(30px);
+                transition: opacity 0.8s ease, transform 0.8s ease;
+            }
+            .fade-in.active {
+                opacity: 1;
+                transform: translateY(0);
+            }
+            .btn-pulse {
+                position: relative;
+                overflow: hidden;
+            }
+            .btn-pulse::after {
+                content: '';
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                width: 0;
+                height: 0;
+                background: rgba(255, 255, 255, 0.2);
+                border-radius: 50%;
+                transform: translate(-50%, -50%);
+                transition: width 0.6s ease, height 0.6s ease;
+            }
+            .btn-pulse:active::after {
+                width: 300px;
+                height: 300px;
+            }
+            .typewriter {
+                overflow: hidden;
+                border-right: 3px solid #fff;
+                white-space: nowrap;
+                margin: 0 auto;
+                animation: typing 3.5s steps(30, end), blink-cursor 0.8s step-end infinite;
+            }
+            @keyframes typing {
+                from { width: 0 }
+                to { width: 100% }
+            }
+            @keyframes blink-cursor {
+                from, to { border-color: transparent }
+                50% { border-color: white }
+            }
+            html {
+                scroll-behavior: smooth;
             }
         }
     </style>
 </head>
-<body class="font-sans text-dark bg-gray-50">
+<body class="font-sans text-dark bg-gray-50 overflow-x-hidden">
 
-    <!-- Encabezado / Navegación -->
-    <header class="bg-white shadow-md fixed w-full z-50">
-        <div class="container mx-auto px-4 py-3 flex flex-col md:flex-row justify-between items-center">
+    <!-- Encabezado / Navegación DINÁMICA -->
+    <header id="navbar" class="bg-transparent fixed w-full z-50 py-3 transition-all duration-300">
+        <div class="container mx-auto px-4 flex flex-col md:flex-row justify-between items-center">
             <div class="flex items-center mb-3 md:mb-0">
-                <img src="logo.png" alt="LUAXGROUP Logo" class="h-12 mr-3">
-                <h1 class="text-[clamp(1.2rem,2vw,1.5rem)] font-bold text-primary">LUAXGROUP</h1>
+                <img src="logo.png" alt="LUAXGROUP Logo" class="h-12 mr-3 drop-shadow-lg">
+                <h1 class="text-[clamp(1.2rem,2vw,1.5rem)] font-bold text-primary drop-shadow">LUAXGROUP</h1>
             </div>
             <nav>
-                <ul class="flex space-x-6 text-gray-700 font-medium">
-                    <li><a href="#inicio" class="hover:text-primary transition-colors">Inicio</a></li>
-                    <li><a href="#servicios" class="hover:text-primary transition-colors">Servicios</a></li>
-                    <li><a href="#nosotros" class="hover:text-primary transition-colors">Nosotros</a></li>
-                    <li><a href="#contacto" class="hover:text-primary transition-colors">Contacto</a></li>
+                <ul class="flex space-x-6 text-gray-800/80 font-medium">
+                    <li><a href="#inicio" class="hover:text-primary transition-colors relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-primary hover:after:w-full after:transition-all">Inicio</a></li>
+                    <li><a href="#servicios" class="hover:text-primary transition-colors relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-primary hover:after:w-full after:transition-all">Servicios</a></li>
+                    <li><a href="#nosotros" class="hover:text-primary transition-colors relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-primary hover:after:w-full after:transition-all">Nosotros</a></li>
+                    <li><a href="#contacto" class="hover:text-primary transition-colors relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-primary hover:after:w-full after:transition-all">Contacto</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
-    <!-- Sección Principal -->
-    <section id="inicio" class="pt-28 pb-20 bg-gradient-to-r from-primary/90 to-secondary/80 text-white">
-        <div class="container mx-auto px-4 text-center">
-            <h2 class="text-[clamp(2rem,5vw,3.5rem)] font-bold mb-4 text-shadow">Soluciones Integrales para tu Proyecto</h2>
-            <p class="text-[clamp(1rem,2vw,1.3rem)] mb-8 max-w-3xl mx-auto">Estructuras metálicas, electricidad, seguridad y más. Calidad y confianza en cada trabajo.</p>
-            <a href="#contacto" class="bg-white text-primary font-semibold px-8 py-3 rounded-full hover:bg-gray-100 transition-all transform hover:scale-105 shadow-lg">
-                Contáctanos
+    <!-- Sección Principal CON EFECTO DE ESCRITURA -->
+    <section id="inicio" class="min-h-screen flex items-center justify-center pt-20 bg-gradient-to-br from-primary via-primary/90 to-secondary/90 text-white relative overflow-hidden">
+        <div class="absolute top-0 left-0 w-full h-full opacity-10">
+            <div class="absolute w-64 h-64 bg-white/20 rounded-full blur-3xl -top-20 -left-20"></div>
+            <div class="absolute w-80 h-80 bg-white/10 rounded-full blur-3xl bottom-10 right-10"></div>
+        </div>
+        
+        <div class="container mx-auto px-4 text-center relative z-10 py-16">
+            <h2 class="text-[clamp(1.8rem,5vw,3.8rem)] font-bold mb-6 text-shadow leading-tight">
+                <span class="typewriter inline-block">Soluciones Integrales para tu Proyecto</span>
+            </h2>
+            <p class="text-[clamp(1rem,2vw,1.4rem)] mb-10 max-w-3xl mx-auto text-white/90 leading-relaxed fade-in">
+                Estructuras metálicas, electricidad, seguridad y más. Calidad, confianza y tecnología en cada trabajo que realizamos.
+            </p>
+            <a href="#contacto" class="bg-white text-primary font-bold px-10 py-4 rounded-full hover:bg-gray-100 transition-all transform hover:scale-110 shadow-2xl btn-pulse inline-block">
+                <i class="fa fa-whatsapp mr-2"></i> Contáctanos Ahora
             </a>
         </div>
     </section>
 
-    <!-- Sección Servicios CON IMÁGENES -->
-    <section id="servicios" class="py-20 bg-white">
+    <!-- Sección Estadísticas ANIMADAS -->
+    <section class="bg-white py-16 -mt-1 relative z-20 shadow-2xl">
         <div class="container mx-auto px-4">
-            <h3 class="text-[clamp(1.5rem,3vw,2.2rem)] font-bold text-center text-primary mb-16">Nuestros Servicios</h3>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                <div class="fade-in">
+                    <p class="text-4xl font-bold text-primary counter" data-target="8">0</p>
+                    <p class="text-gray-600 font-medium">Años de Experiencia</p>
+                </div>
+                <div class="fade-in">
+                    <p class="text-4xl font-bold text-primary counter" data-target="450">0</p>
+                    <p class="text-gray-600 font-medium">Proyectos Completados</p>
+                </div>
+                <div class="fade-in">
+                    <p class="text-4xl font-bold text-primary counter" data-target="380">0</p>
+                    <p class="text-gray-600 font-medium">Clientes Satisfechos</p>
+                </div>
+                <div class="fade-in">
+                    <p class="text-4xl font-bold text-primary counter" data-target="24">0</p>
+                    <p class="text-gray-600 font-medium">Soporte Técnico</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Servicios CON IMÁGENES Y EFECTOS -->
+    <section id="servicios" class="py-20 bg-gradient-to-b from-gray-50 to-lightblue/20">
+        <div class="container mx-auto px-4">
+            <h3 class="text-[clamp(1.5rem,3vw,2.5rem)] font-bold text-center text-primary mb-4 fade-in">Nuestros Servicios</h3>
+            <p class="text-center text-gray-600 max-w-2xl mx-auto mb-16 fade-in">Ofrecemos soluciones completas adaptadas a tus necesidades, con garantía y calidad certificada.</p>
+            
             <div class="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-5xl mx-auto">
                 
                 <!-- Servicio 1: Estructuras Metálicas -->
-                <div class="bg-gray-50 rounded-xl shadow-lg overflow-hidden card-hover border-b-4 border-secondary">
-                    <img src="https://images.unsplash.com/photo-1504917591070-2822f98b481b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
-                         alt="Estructuras Metálicas LUAXGROUP" class="w-full h-56 object-cover">
-                    <div class="p-6">
-                        <div class="flex items-center mb-3">
-                            <i class="fa fa-cogs text-3xl text-secondary mr-3"></i>
-                            <h4 class="text-xl font-semibold">Estructuras Metálicas</h4>
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden card-hover fade-in group">
+                    <div class="img-container relative overflow-hidden h-56">
+                        <img src="https://images.unsplash.com/photo-1504917591070-2822f98b481b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
+                             alt="Estructuras Metálicas LUAXGROUP" class="w-full h-full object-cover img-hover">
+                        <div class="absolute inset-0 bg-primary/0 group-hover:bg-primary/40 transition-all duration-300 flex items-center justify-center opacity-0 group-hover:opacity-100">
+                            <i class="fa fa-search-plus text-white text-4xl"></i>
                         </div>
-                        <p class="text-gray-600 leading-relaxed">Diseño, fabricación e instalación de estructuras resistentes, techos, coberturas y estructuras industriales cumpliendo todas las normas de seguridad y calidad.</p>
+                    </div>
+                    <div class="p-7">
+                        <div class="w-16 h-16 bg-lightblue rounded-xl flex items-center justify-center text-primary text-2xl mb-5 -mt-10 shadow-lg mx-auto relative z-10 group-hover:scale-110 transition-transform">
+                            <i class="fa fa-cogs"></i>
+                        </div>
+                        <h4 class="text-xl font-bold mb-3 text-center">Estructuras Metálicas</h4>
+                        <p class="text-gray-600 leading-relaxed text-center">Diseño, fabricación e instalación de estructuras resistentes, techos, coberturas y estructuras industriales cumpliendo todas las normas de seguridad y calidad.</p>
+                        <div class="mt-5 text-center">
+                            <a href="#contacto" class="text-primary font-medium hover:underline inline-flex items-center">
+                                Consultar <i class="fa fa-arrow-right ml-2"></i>
+                            </a>
+                        </div>
                     </div>
                 </div>
 
                 <!-- Servicio 2: Electricidad -->
-                <div class="bg-gray-50 rounded-xl shadow-lg overflow-hidden card-hover border-b-4 border-secondary">
-                    <img src="https://images.unsplash.com/photo-1621905251159-5d38d6584938?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
-                         alt="Electricidad Domiciliaria e Industrial LUAXGROUP" class="w-full h-56 object-cover">
-                    <div class="p-6">
-                        <div class="flex items-center mb-3">
-                            <i class="fa fa-bolt text-3xl text-secondary mr-3"></i>
-                            <h4 class="text-xl font-semibold">Electricidad Domiciliaria e Industrial</h4>
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden card-hover fade-in group">
+                    <div class="img-container relative overflow-hidden h-56">
+                        <img src="https://images.unsplash.com/photo--1621905251159-5d38d6584938?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
+                             alt="Electricidad Domiciliaria e Industrial LUAXGROUP" class="w-full h-full object-cover img-hover">
+                        <div class="absolute inset-0 bg-primary/0 group-hover:bg-primary/40 transition-all duration-300 flex items-center justify-center opacity-0 group-hover:opacity-100">
+                            <i class="fa fa-search-plus text-white text-4xl"></i>
                         </div>
-                        <p class="text-gray-600 leading-relaxed">Instalaciones eléctricas completas, mantenimiento, reparaciones y tableros eléctricos para casas, edificios e industrias. Trabajos seguros y garantizados.</p>
+                    </div>
+                    <div class="p-7">
+                        <div class="w-16 h-16 bg-lightblue rounded-xl flex items-center justify-center text-primary text-2xl mb-5 -mt-10 shadow-lg mx-auto relative z-10 group-hover:scale-110 transition-transform">
+                            <i class="fa fa-bolt"></i>
+                        </div>
+                        <h4 class="text-xl font-bold mb-3 text-center">Electricidad Domiciliaria e Industrial</h4>
+                        <p class="text-gray-600 leading-relaxed text-center">Instalaciones eléctricas completas, mantenimiento, reparaciones y tableros eléctricos para casas, edificios e industrias. Trabajos seguros y garantizados.</p>
+                        <div class="mt-5 text-center">
+                            <a href="#contacto" class="text-primary font-medium hover:underline inline-flex items-center">
+                                Consultar <i class="fa fa-arrow-right ml-2"></i>
+                            </a>
+                        </div>
                     </div>
                 </div>
 
                 <!-- Servicio 3: Cámaras y Seguridad -->
-                <div class="bg-gray-50 rounded-xl shadow-lg overflow-hidden card-hover border-b-4 border-secondary">
-                    <img src="https://images.unsplash.com/photo-1558002038-755759376912?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
-                         alt="Instalación de Cámaras y Videoporteros LUAXGROUP" class="w-full h-56 object-cover">
-                    <div class="p-6">
-                        <div class="flex items-center mb-3">
-                            <i class="fa fa-video-camera text-3xl text-secondary mr-3"></i>
-                            <h4 class="text-xl font-semibold">Cámaras y Videoporteros</h4>
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden card-hover fade-in group">
+                    <div class="img-container relative overflow-hidden h-56">
+                        <img src="https://images.unsplash.com/photo-1558002038-755759376912?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
+                             alt="Instalación de Cámaras y Videoporteros LUAXGROUP" class="w-full h-full object-cover img-hover">
+                        <div class="absolute inset-0 bg-primary/0 group-hover:bg-primary/40 transition-all duration-300 flex items-center justify-center opacity-0 group-hover:opacity-100">
+                            <i class="fa fa-search-plus text-white text-4xl"></i>
                         </div>
-                        <p class="text-gray-600 leading-relaxed">Sistemas de vigilancia modernos, instalación de cámaras HD, videoporteros, control de acceso y monitoreo remoto para la seguridad de su hogar o negocio.</p>
+                    </div>
+                    <div class="p-7">
+                        <div class="w-16 h-16 bg-lightblue rounded-xl flex items-center justify-center text-primary text-2xl mb-5 -mt-10 shadow-lg mx-auto relative z-10 group-hover:scale-110 transition-transform">
+                            <i class="fa fa-video-camera"></i>
+                        </div>
+                        <h4 class="text-xl font-bold mb-3 text-center">Cámaras y Videoporteros</h4>
+                        <p class="text-gray-600 leading-relaxed text-center">Sistemas de vigilancia modernos, instalación de cámaras HD, videoporteros, control de acceso y monitoreo remoto para la seguridad de su hogar o negocio.</p>
+                        <div class="mt-5 text-center">
+                            <a href="#contacto" class="text-primary font-medium hover:underline inline-flex items-center">
+                                Consultar <i class="fa fa-arrow-right ml-2"></i>
+                            </a>
+                        </div>
                     </div>
                 </div>
 
                 <!-- Servicio 4: Instalación TERT -->
-                <div class="bg-gray-50 rounded-xl shadow-lg overflow-hidden card-hover border-b-4 border-secondary">
-                    <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
-                         alt="Instalación TERT LUAXGROUP" class="w-full h-56 object-cover">
-                    <div class="p-6">
-                        <div class="flex items-center mb-3">
-                            <i class="fa fa-wrench text-3xl text-secondary mr-3"></i>
-                            <h4 class="text-xl font-semibold">Instalación de TERT</h4>
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden card-hover fade-in group">
+                    <div class="img-container relative overflow-hidden h-56">
+                        <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
+                             alt="Instalación TERT LUAXGROUP" class="w-full h-full object-cover img-hover">
+                        <div class="absolute inset-0 bg-primary/0 group-hover:bg-primary/40 transition-all duration-300 flex items-center justify-center opacity-0 group-hover:opacity-100">
+                            <i class="fa fa-search-plus text-white text-4xl"></i>
                         </div>
-                        <p class="text-gray-600 leading-relaxed">Servicios especializados de instalación, montaje y mantenimiento de sistemas técnicos y proyectos TERT, con personal capacitado y experiencia en el rubro.</p>
+                    </div>
+                    <div class="p-7">
+                        <div class="w-16 h-16 bg-lightblue rounded-xl flex items-center justify-center text-primary text-2xl mb-5 -mt-10 shadow-lg mx-auto relative z-10 group-hover:scale-110 transition-transform">
+                            <i class="fa fa-wrench"></i>
+                        </div>
+                        <h4 class="text-xl font-bold mb-3 text-center">Instalación de TERT</h4>
+                        <p class="text-gray-600 leading-relaxed text-center">Servicios especializados de instalación, montaje y mantenimiento de sistemas técnicos y proyectos TERT, con personal capacitado y experiencia en el rubro.</p>
+                        <div class="mt-5 text-center">
+                            <a href="#contacto" class="text-primary font-medium hover:underline inline-flex items-center">
+                                Consultar <i class="fa fa-arrow-right ml-2"></i>
+                            </a>
+                        </div>
                     </div>
                 </div>
 
@@ -133,56 +269,152 @@
     </section>
 
     <!-- Sección Nosotros -->
-    <section id="nosotros" class="py-20 bg-gray-50">
+    <section id="nosotros" class="py-20 bg-white">
         <div class="container mx-auto px-4">
-            <div class="max-w-3xl mx-auto text-center">
-                <h3 class="text-[clamp(1.5rem,3vw,2.2rem)] font-bold text-primary mb-6">Sobre Nosotros</h3>
-                <p class="text-gray-700 text-lg leading-relaxed">
-                    En <strong>LUAXGROUP</strong> nos dedicamos a brindar soluciones integrales en estructuras metálicas, electricidad y sistemas de seguridad. 
-                    Ubicados en Av. Sicuani, contamos con un equipo de profesionales comprometidos con la calidad, la puntualidad y la seguridad en cada proyecto que realizamos.
-                    Nuestro objetivo es cumplir y superar las expectativas de nuestros clientes.
-                </p>
+            <div class="max-w-4xl mx-auto fade-in">
+                <h3 class="text-[clamp(1.5rem,3vw,2.2rem)] font-bold text-primary mb-8 text-center">Sobre Nosotros</h3>
+                <div class="bg-gradient-to-r from-gray-50 to-lightblue/10 p-8 rounded-2xl shadow-lg">
+                    <p class="text-gray-700 text-lg leading-relaxed mb-4 text-center">
+                        En <strong class="text-primary">LUAXGROUP</strong> nos dedicamos a brindar soluciones integrales en estructuras metálicas, electricidad y sistemas de seguridad. 
+                    </p>
+                    <p class="text-gray-700 text-lg leading-relaxed text-center">
+                        Ubicados en <strong>Av. Sicuani</strong>, contamos con un equipo de profesionales comprometidos con la calidad, la puntualidad y la seguridad en cada proyecto que realizamos. Nuestro objetivo es cumplir y superar las expectativas de nuestros clientes, ofreciendo tecnología de punta y un servicio personalizado.
+                    </p>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Sección Contacto -->
-    <section id="contacto" class="py-20 bg-white">
+    <!-- Sección Contacto INTERACTIVA -->
+    <section id="contacto" class="py-20 bg-gradient-to-b from-lightblue/20 to-white relative">
         <div class="container mx-auto px-4">
-            <h3 class="text-[clamp(1.5rem,3vw,2.2rem)] font-bold text-center text-primary mb-12">Contáctanos</h3>
-            <div class="max-w-2xl mx-auto bg-gray-50 p-8 rounded-2xl shadow-lg">
-                <div class="space-y-6 text-lg">
-                    <div class="flex items-center">
-                        <i class="fa fa-phone text-2xl text-secondary mr-4 w-8 text-center"></i>
-                        <p><strong>Celular:</strong> 916794900</p>
+            <h3 class="text-[clamp(1.5rem,3vw,2.2rem)] font-bold text-center text-primary mb-12 fade-in">Contáctanos</h3>
+            <div class="max-w-3xl mx-auto fade-in">
+                <div class="bg-white rounded-3xl shadow-2xl overflow-hidden transform hover:scale-[1.01] transition-all">
+                    <div class="bg-gradient-to-r from-primary to-secondary p-6 text-white text-center">
+                        <p class="text-lg">Estamos listos para ayudarte con tu próximo proyecto</p>
                     </div>
-                    <div class="flex items-center">
-                        <i class="fa fa-map-marker text-2xl text-secondary mr-4 w-8 text-center"></i>
-                        <p><strong>Dirección:</strong> Av. Sicuani</p>
+                    <div class="p-8 md:p-10">
+                        <div class="grid md:grid-cols-2 gap-8">
+                            <div class="space-y-6 text-lg">
+                                <div class="flex items-center p-4 rounded-xl hover:bg-lightblue/30 transition-colors group">
+                                    <div class="w-12 h-12 bg-lightblue rounded-lg flex items-center justify-center text-primary text-xl mr-4 group-hover:scale-110 transition-transform">
+                                        <i class="fa fa-phone"></i>
+                                    </div>
+                                    <div>
+                                        <p class="text-sm text-gray-500">Celular / WhatsApp</p>
+                                        <p class="font-semibold">916794900</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center p-4 rounded-xl hover:bg-lightblue/30 transition-colors group">
+                                    <div class="w-12 h-12 bg-lightblue rounded-lg flex items-center justify-center text-primary text-xl mr-4 group-hover:scale-110 transition-transform">
+                                        <i class="fa fa-map-marker"></i>
+                                    </div>
+                                    <div>
+                                        <p class="text-sm text-gray-500">Dirección</p>
+                                        <p class="font-semibold">Av. Sicuani</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center p-4 rounded-xl hover:bg-lightblue/30 transition-colors group">
+                                    <div class="w-12 h-12 bg-lightblue rounded-lg flex items-center justify-center text-primary text-xl mr-4 group-hover:scale-110 transition-transform">
+                                        <i class="fa fa-clock-o"></i>
+                                    </div>
+                                    <div>
+                                        <p class="text-sm text-gray-500">Horario de Atención</p>
+                                        <p class="font-semibold">Lun - Sáb: 8:00 AM - 6:00 PM</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="flex flex-col items-center justify-center space-y-4">
+                                <a href="tel:+51916794900" class="w-full bg-primary text-white px-8 py-4 rounded-xl hover:bg-primary/90 transition-all shadow-lg text-center font-bold text-lg btn-pulse">
+                                    <i class="fa fa-phone mr-2"></i> Llamar Ahora
+                                </a>
+                                <a href="https://wa.me/51916794900" target="_blank" class="w-full bg-green-600 text-white px-8 py-4 rounded-xl hover:bg-green-700 transition-all shadow-lg text-center font-bold text-lg btn-pulse">
+                                    <i class="fa fa-whatsapp mr-2"></i> Enviar WhatsApp
+                                </a>
+                            </div>
+                        </div>
                     </div>
-                    <div class="flex items-center">
-                        <i class="fa fa-clock-o text-2xl text-secondary mr-4 w-8 text-center"></i>
-                        <p><strong>Horario:</strong> Lunes a Sábado: 8:00 AM - 6:00 PM</p>
-                    </div>
-                </div>
-
-                <div class="mt-10 text-center">
-                    <a href="tel:+51916794900" class="inline-block bg-primary text-white px-8 py-3 rounded-full hover:bg-primary/90 transition-colors shadow-md">
-                        <i class="fa fa-phone mr-2"></i> Llamar Ahora
-                    </a>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Pie de página -->
-    <footer class="bg-dark text-white py-8">
-        <div class="container mx-auto px-4 text-center">
-            <img src="logo.png" alt="LUAXGROUP Logo" class="h-10 mx-auto mb-4">
-            <p class="mb-2">© 2026 LUAXGROUP - Todos los derechos reservados</p>
-            <p class="text-gray-400 text-sm">Soluciones integrales en estructuras, electricidad y seguridad</p>
+    <footer class="bg-dark text-white py-10 relative overflow-hidden">
+        <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary to-secondary"></div>
+        <div class="container mx-auto px-4 text-center relative z-10">
+            <img src="logo.png" alt="LUAXGROUP Logo" class="h-12 mx-auto mb-4 filter brightness-125">
+            <p class="mb-2 text-lg">© 2026 LUAXGROUP - Todos los derechos reservados</p>
+            <p class="text-gray-400">Soluciones integrales en estructuras, electricidad y seguridad</p>
         </div>
     </footer>
+
+    <!-- Botón flotante de WhatsApp -->
+    <a href="https://wa.me/51916794900" target="_blank" class="fixed bottom-6 right-6 bg-green-500 text-white w-16 h-16 rounded-full flex items-center justify-center shadow-2xl z-50 hover:scale-110 transition-all animate-bounce">
+        <i class="fa fa-whatsapp text-3xl"></i>
+    </a>
+
+    <!-- SCRIPTS PARA LA INTERACTIVIDAD -->
+    <script>
+        // Navbar cambia al hacer scroll
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('nav-scrolled');
+            } else {
+                navbar.classList.remove('nav-scrolled');
+            }
+        });
+
+        // Animación de aparición al hacer scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -30px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Animación contadores numéricos
+        const counters = document.querySelectorAll('.counter');
+        const countObserver = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const counter = entry.target;
+                    const target = parseInt(counter.getAttribute('data-target'));
+                    let count = 0;
+                    const speed = 2000 / target;
+                    
+                    const updateCount = () => {
+                        if(count < target) {
+                            count += Math.ceil(target / 50);
+                            counter.innerText = count;
+                            setTimeout(updateCount, speed);
+                        } else {
+                            counter.innerText = target;
+                        }
+                    }
+                    updateCount();
+                    countObserver.unobserve(counter);
+                }
+            });
+        }, {threshold: 1.0});
+
+        counters.forEach(counter => {
+            countObserver.observe(counter);
+        });
+    </script>
 
 </body>
 </html>
