@@ -29,7 +29,7 @@
                 content-visibility: auto;
             }
             .text-shadow {
-                text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+                text-shadow: 0 2px 4px rgba(0,0,0,0.5);
             }
             .card-hover {
                 transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
@@ -97,6 +97,11 @@
             html {
                 scroll-behavior: smooth;
             }
+            .bg-service-image {
+                background-position: center;
+                background-size: cover;
+                background-repeat: no-repeat;
+            }
         }
     </style>
 </head>
@@ -107,25 +112,22 @@
         <div class="container mx-auto px-4 flex flex-col md:flex-row justify-between items-center">
             <div class="flex items-center mb-3 md:mb-0">
                 <img src="logo.png" alt="LUAXGROUP Logo" class="h-12 mr-3 drop-shadow-lg">
-                <h1 class="text-[clamp(1.2rem,2vw,1.5rem)] font-bold text-primary drop-shadow">LUAXGROUP</h1>
+                <h1 class="text-[clamp(1.2rem,2vw,1.5rem)] font-bold text-white drop-shadow">LUAXGROUP</h1>
             </div>
             <nav>
-                <ul class="flex space-x-6 text-gray-800/80 font-medium">
-                    <li><a href="#inicio" class="hover:text-primary transition-colors relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-primary hover:after:w-full after:transition-all">Inicio</a></li>
-                    <li><a href="#servicios" class="hover:text-primary transition-colors relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-primary hover:after:w-full after:transition-all">Servicios</a></li>
-                    <li><a href="#nosotros" class="hover:text-primary transition-colors relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-primary hover:after:w-full after:transition-all">Nosotros</a></li>
-                    <li><a href="#contacto" class="hover:text-primary transition-colors relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-primary hover:after:w-full after:transition-all">Contacto</a></li>
+                <ul class="flex space-x-6 text-white/90 font-medium">
+                    <li><a href="#inicio" class="hover:text-white transition-colors relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-white hover:after:w-full after:transition-all">Inicio</a></li>
+                    <li><a href="#servicios" class="hover:text-white transition-colors relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-white hover:after:w-full after:transition-all">Servicios</a></li>
+                    <li><a href="#nosotros" class="hover:text-white transition-colors relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-white hover:after:w-full after:transition-all">Nosotros</a></li>
+                    <li><a href="#contacto" class="hover:text-white transition-colors relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-white hover:after:w-full after:transition-all">Contacto</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
-    <!-- Sección Principal CON EFECTO DE ESCRITURA -->
-    <section id="inicio" class="min-h-screen flex items-center justify-center pt-20 bg-gradient-to-br from-primary via-primary/90 to-secondary/90 text-white relative overflow-hidden">
-        <div class="absolute top-0 left-0 w-full h-full opacity-10">
-            <div class="absolute w-64 h-64 bg-white/20 rounded-full blur-3xl -top-20 -left-20"></div>
-            <div class="absolute w-80 h-80 bg-white/10 rounded-full blur-3xl bottom-10 right-10"></div>
-        </div>
+    <!-- Sección Principal CON IMAGEN DE FONDO DE SERVICIOS GENERALES -->
+    <section id="inicio" class="min-h-screen flex items-center justify-center pt-20 bg-service-image relative" style="background-image: url('https://images.unsplash.com/photo-1581094271901-8022df4466f8?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=90');">
+        <div class="absolute inset-0 bg-gradient-to-br from-primary/90 via-primary/80 to-secondary/70"></div>
         
         <div class="container mx-auto px-4 text-center relative z-10 py-16">
             <h2 class="text-[clamp(1.8rem,5vw,3.8rem)] font-bold mb-6 text-shadow leading-tight">
@@ -164,17 +166,17 @@
         </div>
     </section>
 
-    <!-- Sección Servicios CON IMÁGENES Y EFECTOS -->
+    <!-- Sección Servicios CON MÁS IMÁGENES POR CADA CAMPO -->
     <section id="servicios" class="py-20 bg-gradient-to-b from-gray-50 to-lightblue/20">
         <div class="container mx-auto px-4">
             <h3 class="text-[clamp(1.5rem,3vw,2.5rem)] font-bold text-center text-primary mb-4 fade-in">Nuestros Servicios</h3>
             <p class="text-center text-gray-600 max-w-2xl mx-auto mb-16 fade-in">Ofrecemos soluciones completas adaptadas a tus necesidades, con garantía y calidad certificada.</p>
             
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-5xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-6xl mx-auto">
                 
-                <!-- Servicio 1: Estructuras Metálicas -->
+                <!-- SERVICIO 1: ESTRUCTURAS METÁLICAS -->
                 <div class="bg-white rounded-2xl shadow-lg overflow-hidden card-hover fade-in group">
-                    <div class="img-container relative overflow-hidden h-56">
+                    <div class="img-container relative overflow-hidden h-60">
                         <img src="https://images.unsplash.com/photo-1504917591070-2822f98b481b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
                              alt="Estructuras Metálicas LUAXGROUP" class="w-full h-full object-cover img-hover">
                         <div class="absolute inset-0 bg-primary/0 group-hover:bg-primary/40 transition-all duration-300 flex items-center justify-center opacity-0 group-hover:opacity-100">
@@ -186,19 +188,30 @@
                             <i class="fa fa-cogs"></i>
                         </div>
                         <h4 class="text-xl font-bold mb-3 text-center">Estructuras Metálicas</h4>
-                        <p class="text-gray-600 leading-relaxed text-center">Diseño, fabricación e instalación de estructuras resistentes, techos, coberturas y estructuras industriales cumpliendo todas las normas de seguridad y calidad.</p>
-                        <div class="mt-5 text-center">
+                        <p class="text-gray-600 leading-relaxed text-center mb-5">
+                            Diseño, fabricación e instalación de estructuras resistentes, techos, coberturas, escaleras, portones y estructuras industriales. Cumplimos todas las normas de seguridad y calidad.
+                        </p>
+                        
+                        <!-- GALERÍA DE IMÁGENES DE REFERENCIA -->
+                        <h5 class="font-semibold text-center text-primary mb-3">Nuestros Trabajos</h5>
+                        <div class="grid grid-cols-3 gap-2 mb-4">
+                            <img src="https://images.unsplash.com/photo-1533106546578-8f55db86d697?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=60" alt="Fabricación" class="h-20 w-full object-cover rounded-lg shadow hover:scale-105 transition-transform">
+                            <img src="https://images.unsplash.com/photo-1565043825793-61d30d376c86?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=60" alt="Montaje" class="h-20 w-full object-cover rounded-lg shadow hover:scale-105 transition-transform">
+                            <img src="https://images.unsplash.com/photo-1597843819484-9c22ea98f3d3?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=60" alt="Acabados" class="h-20 w-full object-cover rounded-lg shadow hover:scale-105 transition-transform">
+                        </div>
+
+                        <div class="mt-3 text-center">
                             <a href="#contacto" class="text-primary font-medium hover:underline inline-flex items-center">
-                                Consultar <i class="fa fa-arrow-right ml-2"></i>
+                                Solicitar presupuesto <i class="fa fa-arrow-right ml-2"></i>
                             </a>
                         </div>
                     </div>
                 </div>
 
-                <!-- Servicio 2: Electricidad -->
+                <!-- SERVICIO 2: ELECTRICIDAD DOMICILIARIA E INDUSTRIAL -->
                 <div class="bg-white rounded-2xl shadow-lg overflow-hidden card-hover fade-in group">
-                    <div class="img-container relative overflow-hidden h-56">
-                        <img src="https://images.unsplash.com/photo--1621905251159-5d38d6584938?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
+                    <div class="img-container relative overflow-hidden h-60">
+                        <img src="https://images.unsplash.com/photo-1621905251159-5d38d6584938?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
                              alt="Electricidad Domiciliaria e Industrial LUAXGROUP" class="w-full h-full object-cover img-hover">
                         <div class="absolute inset-0 bg-primary/0 group-hover:bg-primary/40 transition-all duration-300 flex items-center justify-center opacity-0 group-hover:opacity-100">
                             <i class="fa fa-search-plus text-white text-4xl"></i>
@@ -209,18 +222,29 @@
                             <i class="fa fa-bolt"></i>
                         </div>
                         <h4 class="text-xl font-bold mb-3 text-center">Electricidad Domiciliaria e Industrial</h4>
-                        <p class="text-gray-600 leading-relaxed text-center">Instalaciones eléctricas completas, mantenimiento, reparaciones y tableros eléctricos para casas, edificios e industrias. Trabajos seguros y garantizados.</p>
-                        <div class="mt-5 text-center">
+                        <p class="text-gray-600 leading-relaxed text-center mb-5">
+                            Instalaciones eléctricas completas, mantenimiento, reparaciones, tableros eléctricos, cableado estructurado y sistemas de puesta a tierra para casas, edificios e industrias. Trabajos seguros y garantizados.
+                        </p>
+                        
+                        <!-- GALERÍA DE IMÁGENES DE REFERENCIA -->
+                        <h5 class="font-semibold text-center text-primary mb-3">Nuestros Trabajos</h5>
+                        <div class="grid grid-cols-3 gap-2 mb-4">
+                            <img src="https://images.unsplash.com/photo-1558002038-755759376912?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=60" alt="Tableros" class="h-20 w-full object-cover rounded-lg shadow hover:scale-105 transition-transform">
+                            <img src="https://images.unsplash.com/photo-1617799810159-9c96a81c8183?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=60" alt="Instalación" class="h-20 w-full object-cover rounded-lg shadow hover:scale-105 transition-transform">
+                            <img src="https://images.unsplash.com/photo-1621905252506-449191583336?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=60" alt="Mantenimiento" class="h-20 w-full object-cover rounded-lg shadow hover:scale-105 transition-transform">
+                        </div>
+
+                        <div class="mt-3 text-center">
                             <a href="#contacto" class="text-primary font-medium hover:underline inline-flex items-center">
-                                Consultar <i class="fa fa-arrow-right ml-2"></i>
+                                Solicitar presupuesto <i class="fa fa-arrow-right ml-2"></i>
                             </a>
                         </div>
                     </div>
                 </div>
 
-                <!-- Servicio 3: Cámaras y Seguridad -->
+                <!-- SERVICIO 3: CÁMARAS Y VIDEOPORTEROS -->
                 <div class="bg-white rounded-2xl shadow-lg overflow-hidden card-hover fade-in group">
-                    <div class="img-container relative overflow-hidden h-56">
+                    <div class="img-container relative overflow-hidden h-60">
                         <img src="https://images.unsplash.com/photo-1558002038-755759376912?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
                              alt="Instalación de Cámaras y Videoporteros LUAXGROUP" class="w-full h-full object-cover img-hover">
                         <div class="absolute inset-0 bg-primary/0 group-hover:bg-primary/40 transition-all duration-300 flex items-center justify-center opacity-0 group-hover:opacity-100">
@@ -232,18 +256,29 @@
                             <i class="fa fa-video-camera"></i>
                         </div>
                         <h4 class="text-xl font-bold mb-3 text-center">Cámaras y Videoporteros</h4>
-                        <p class="text-gray-600 leading-relaxed text-center">Sistemas de vigilancia modernos, instalación de cámaras HD, videoporteros, control de acceso y monitoreo remoto para la seguridad de su hogar o negocio.</p>
-                        <div class="mt-5 text-center">
+                        <p class="text-gray-600 leading-relaxed text-center mb-5">
+                            Sistemas de vigilancia modernos, instalación de cámaras HD, cámaras IP, videoporteros digitales, control de acceso, cercos eléctricos y monitoreo remoto 24/7 para la seguridad de su hogar o negocio.
+                        </p>
+                        
+                        <!-- GALERÍA DE IMÁGENES DE REFERENCIA -->
+                        <h5 class="font-semibold text-center text-primary mb-3">Nuestros Trabajos</h5>
+                        <div class="grid grid-cols-3 gap-2 mb-4">
+                            <img src="https://images.unsplash.com/photo-1544197150-b99a580bb7a8?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=60" alt="Cámaras HD" class="h-20 w-full object-cover rounded-lg shadow hover:scale-105 transition-transform">
+                            <img src="https://images.unsplash.com/photo-1588775438340-98b89d07b684?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=60" alt="Videoporteros" class="h-20 w-full object-cover rounded-lg shadow hover:scale-105 transition-transform">
+                            <img src="https://images.unsplash.com/photo-1611684811424-e560c411208f?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=60" alt="Seguridad" class="h-20 w-full object-cover rounded-lg shadow hover:scale-105 transition-transform">
+                        </div>
+
+                        <div class="mt-3 text-center">
                             <a href="#contacto" class="text-primary font-medium hover:underline inline-flex items-center">
-                                Consultar <i class="fa fa-arrow-right ml-2"></i>
+                                Solicitar presupuesto <i class="fa fa-arrow-right ml-2"></i>
                             </a>
                         </div>
                     </div>
                 </div>
 
-                <!-- Servicio 4: Instalación TERT -->
+                <!-- SERVICIO 4: INSTALACIÓN DE TERT -->
                 <div class="bg-white rounded-2xl shadow-lg overflow-hidden card-hover fade-in group">
-                    <div class="img-container relative overflow-hidden h-56">
+                    <div class="img-container relative overflow-hidden h-60">
                         <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
                              alt="Instalación TERT LUAXGROUP" class="w-full h-full object-cover img-hover">
                         <div class="absolute inset-0 bg-primary/0 group-hover:bg-primary/40 transition-all duration-300 flex items-center justify-center opacity-0 group-hover:opacity-100">
@@ -255,10 +290,21 @@
                             <i class="fa fa-wrench"></i>
                         </div>
                         <h4 class="text-xl font-bold mb-3 text-center">Instalación de PPR</h4>
-                        <p class="text-gray-600 leading-relaxed text-center">Servicios especializados de instalación, montaje y mantenimiento de sistemas técnicos y proyectos PPR, con personal capacitado y experiencia en el rubro.</p>
-                        <div class="mt-5 text-center">
+                        <p class="text-gray-600 leading-relaxed text-center mb-5">
+                            Servicios especializados de instalación, montaje, mantenimiento y puesta en marcha de sistemas técnicos, redes, telecomunicaciones y proyectos ppr. Contamos con personal capacitado y amplia experiencia en el rubro.
+                        </p>
+                        
+                        <!-- GALERÍA DE IMÁGENES DE REFERENCIA -->
+                        <h5 class="font-semibold text-center text-primary mb-3">Nuestros Trabajos</h5>
+                        <div class="grid grid-cols-3 gap-2 mb-4">
+                            <img src="https://images.unsplash.com/photo-1507925921958-8a62f3d1a50d?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=60" alt="Montaje" class="h-20 w-full object-cover rounded-lg shadow hover:scale-105 transition-transform">
+                            <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=60" alt="Redes" class="h-20 w-full object-cover rounded-lg shadow hover:scale-105 transition-transform">
+                            <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=60" alt="Técnicos" class="h-20 w-full object-cover rounded-lg shadow hover:scale-105 transition-transform">
+                        </div>
+
+                        <div class="mt-3 text-center">
                             <a href="#contacto" class="text-primary font-medium hover:underline inline-flex items-center">
-                                Consultar <i class="fa fa-arrow-right ml-2"></i>
+                                Solicitar presupuesto <i class="fa fa-arrow-right ml-2"></i>
                             </a>
                         </div>
                     </div>
@@ -312,7 +358,7 @@
                                     </div>
                                     <div>
                                         <p class="text-sm text-gray-500">Dirección</p>
-                                        <p class="font-semibold">Av. Sicuani/SICUANI/CANCHIS/CUSCO</p>
+                                        <p class="font-semibold">Av. Sicuani</p>
                                     </div>
                                 </div>
                                 <div class="flex items-center p-4 rounded-xl hover:bg-lightblue/30 transition-colors group">
@@ -363,8 +409,23 @@
             const navbar = document.getElementById('navbar');
             if (window.scrollY > 50) {
                 navbar.classList.add('nav-scrolled');
+                navbar.querySelector('h1').classList.remove('text-white');
+                navbar.querySelector('h1').classList.add('text-primary');
+                navbar.querySelectorAll('a').forEach(el => {
+                    el.classList.remove('text-white/90');
+                    el.classList.add('text-gray-800/80');
+                    el.classList.add('after:bg-primary');
+                });
             } else {
                 navbar.classList.remove('nav-scrolled');
+                navbar.querySelector('h1').classList.remove('text-primary');
+                navbar.querySelector('h1').classList.add('text-white');
+                navbar.querySelectorAll('a').forEach(el => {
+                    el.classList.remove('text-gray-800/80');
+                    el.classList.add('text-white/90');
+                    el.classList.remove('after:bg-primary');
+                    el.classList.add('after:bg-white');
+                });
             }
         });
 
